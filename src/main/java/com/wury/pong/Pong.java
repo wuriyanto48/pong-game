@@ -20,7 +20,8 @@ public class Pong {
         JFrame frame = new JFrame("Pong");
         Game game = new Game();
         frame.add(game);
-        frame.setBounds(0, 0, Constant.WIDTH, Constant.HEIGHT);
+        frame.setSize(Constant.WIDTH, Constant.HEIGHT);
+        frame.setResizable(false);
         frame.setFocusable(true);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

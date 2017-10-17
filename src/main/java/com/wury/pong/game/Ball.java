@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 /**
  *
  * @author WURI
+ * 2017/10/17
  */
 public class Ball {
     

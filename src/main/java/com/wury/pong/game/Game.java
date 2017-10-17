@@ -24,9 +24,9 @@ public class Game extends JPanel implements Runnable {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        g.setColor(Color.red);
         Graphics2D gd = (Graphics2D) g;
         gd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        gd.setColor(Color.BLACK);
         ball.draw(gd);
         g.dispose();
     }
