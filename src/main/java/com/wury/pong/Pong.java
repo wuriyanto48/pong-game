@@ -18,11 +18,12 @@ public class Pong {
         // TODO code application logic here
         
         JFrame frame = new JFrame("Pong");
+        frame.setSize(Constant.WIDTH, Constant.HEIGHT);
+        
         Game game = new Game();
         frame.add(game);
-        frame.setSize(Constant.WIDTH, Constant.HEIGHT);
+        
         frame.setResizable(false);
-        frame.setFocusable(true);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

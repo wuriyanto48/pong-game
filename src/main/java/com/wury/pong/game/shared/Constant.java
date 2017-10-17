@@ -14,5 +14,8 @@ public class Constant {
     
     public static final int PLAYER_WIDTH = 20;
     public static final int PLAYER_HEIGHT = 60;
+    
+    public static final int ENEMY_WIDTH = 20;
+    public static final int ENEMY_HEIGHT = 100;
 
 }

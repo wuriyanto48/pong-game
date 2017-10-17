@@ -3,6 +3,7 @@ package com.wury.pong.game;
 import com.wury.pong.game.shared.Constant;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 /**
@@ -17,11 +18,11 @@ public class Ball {
     private int xAxis = 1;
     private int yAxis = 1;
     
-//    private Game game;
-//    
-//    public Ball(Game game) {
-//        this.game = game;
-//    }
+    private Game game;
+    
+    public Ball(Game game) {
+        this.game = game;
+    }
     
     public void move() {
         if(x + xAxis < 0){
@@ -40,8 +41,28 @@ public class Ball {
             yAxis = -1;
         }
         
+        if(isPlayerCollide()) {
+            xAxis = -1;
+            System.out.println("jes");
+        }
+        
+        if(isEnemyCollide()) {
+            xAxis = +1;
+            System.out.println("jes");
+        }
+        
         x = x + xAxis;
         y = y + yAxis;
+    }
+    
+    private boolean isPlayerCollide() {
+        Rectangle ballRect = new Rectangle(x, y, Constant.BALL_DIAMETER, Constant.BALL_DIAMETER);
+        return game.getPlayer().getBounds().intersects(ballRect);
+    }
+    
+    private boolean isEnemyCollide() {
+        Rectangle ballRect = new Rectangle(x, y, Constant.BALL_DIAMETER, Constant.BALL_DIAMETER);
+        return game.getEnemy().getBounds().intersects(ballRect);
     }
     
     public void draw(Graphics2D g) {

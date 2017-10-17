@@ -1,5 +1,6 @@
 package com.wury.pong.game;
 
+import com.wury.pong.input.KeyBoard;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -16,9 +17,16 @@ public class Game extends JPanel implements Runnable {
     private boolean running = false;
     private Thread thread;
     private Ball ball;
+    private Player player;
+    private Enemy enemy;
     
     public Game(){
-        ball = new Ball();
+        ball = new Ball(this);
+        player = new Player(this);
+        enemy = new Enemy(this);
+        KeyBoard board = new KeyBoard(this);
+        addKeyListener(board);
+        setFocusable(true);
     }
 
     @Override
@@ -28,13 +36,27 @@ public class Game extends JPanel implements Runnable {
         Graphics2D gd = (Graphics2D) g;
         gd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         ball.draw(gd);
+        player.draw(gd);
+        enemy.draw(gd);
         g.dispose();
     }
     
+    public Ball getBall() {
+        return ball;
+    }
     
+    public Player getPlayer() {
+        return player;
+    }
+    
+    public Enemy getEnemy() {
+        return enemy;
+    }
     
     public void update() {
         ball.move();
+        enemy.move();
+        player.move();
     }
     
     public synchronized void start() {
