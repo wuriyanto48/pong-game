@@ -1,7 +1,6 @@
 package com.wury.pong.game;
 
 import com.wury.pong.game.shared.Constant;
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
